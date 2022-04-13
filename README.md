@@ -79,8 +79,23 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 * 13.4.2022 - 0
   * Initial 
 
-### Advantages and disadvantages of PBT tests
 
+## Design notes
+
+### Implementation restrictions
+
+
+### Advantages and disadvantages of unittest
+* Advantages：
+  * Support automated testing
+  * Secondary development is convenient
+  * Organize test cases together by class
+* Disadvantages：
+  * Must be written in TestCase subclass
+  * Must write test method
+  * Difficult to expand
+
+### Advantages and disadvantages of PBT tests
 * Advantages：
   * Check with automatically generated input data to ensure enough test cases
   * Allows developers to increase test coverage and effectively save time
