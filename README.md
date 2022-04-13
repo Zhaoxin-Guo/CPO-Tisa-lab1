@@ -11,8 +11,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 1. Add a new element
 2. Set an element with specific index / key
 3. Remove an element by the index for list
-4. Access: size、is member 、reverse
-5. Conversion from/to built-in list: - from_list 、to_list
+4. Access: size、is member
+5. Conversion from/to list: - from_list 、to_list
 6. Filter data structure by specific predicate
 7. Map structure by specific function
 8. Reduce process structure elements to build a return value by specific functions
@@ -44,12 +44,10 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Features 
 
-- `add(elem)`: Add a new element to the end of unrolled linked list
 - `set(idx, obj)`: setting value by index
 - `remove(idx)`: remove value by index
 - `size()`: Return the size of unrolled linked list
-- `member(elem):` Return a boolean indicating whether the element is a member of the unrolled linked list
-- `reverse()`: reverse the unrolled linked list
+- `is_member(member)`: Return a boolean indicating whether the element is a member of the unrolled linked list
 - `from_list(list)`: Conversion from list
 - `to_list`: Conversion to list
 - `get(idx)`: get value by index
@@ -60,39 +58,27 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Changelog 
 
+* 13.4.2022 - 5
+  * Chen Biao updated `mutableTest.py`. 
+  * Implementing `is_member(member)`、`filter()`、`map()`and`reduce()` features.
+  * Updateing `README.md`.
 * 13.4.2022 - 4
-  * Guo zhaoxin upload mutableTest.py. 
+  * Guo zhaoxin upload `mutableTest.py`. 
   * Implementing some features.
 * 13.4.2022 - 3
-  * Chen Biao upload mutable.py.
+  * Chen Biao upload `mutable.py`.
   * Implementing some features.
 * 13.4.2022 - 2
-  * Chen Biao update README. Add Project structure description and Features.
+  * Chen Biao updated `README.md`. Add Project structure description and Features.
 * 13.4.2022 - 1
-  * Guo Zhaoxin Update README.
+  * Guo Zhaoxin Updated `README.md`.
 * 13.4.2022 - 0
   * Initial 
 
-
-## Design notes
-
-### Implementation restrictions
-
-
-### Advantages and disadvantages of unittest
-* Advantages：
-  * Support automated testing
-  * Secondary development is convenient
-  * Organize test cases together by class
-* Disadvantages：
-  * Must be written in TestCase subclass
-  * Must write test method
-  * Difficult to expand
-
 ### Advantages and disadvantages of PBT tests
+
 * Advantages：
   * Check with automatically generated input data to ensure enough test cases
   * Allows developers to increase test coverage and effectively save time
 * Disadvantages：
   * Not covering all examples
- 
