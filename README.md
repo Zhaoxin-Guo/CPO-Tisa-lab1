@@ -4,17 +4,24 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Variant
 
-* 1.Unrolled linked list
+* 1 - Unrolled linked list
 
 ## Laboratory work description
 
-1. You can use the built-in list inside nodes
-
-2. You need to check that your implementation correctly works with None value 
-
-3. A user should specify node size
-
-4. You need to implement functions/methods for getting/setting value by index.
+* You can use the built-in list inside nodes
+* You need to check that your implementation correctly works with None value 
+* A user should specify node size
+* You need to implement functions/methods for getting/setting value by index
+1. Add a new element
+2. Set an element with specific index / key
+3. Remove an element by the index for list
+4. Access: size、is member 、reverse
+5. Conversion from/to built-in list: - from_list 、to_list
+6. Filter data structure by specific predicate
+7. Map structure by specific function
+8. Reduce process structure elements to build a return value by specific functions
+9. Data structure should be an iterator
+10. Data structure should be a monoid and implement empty and concat methods
 
 
 ## Project structure description
@@ -24,26 +31,41 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Contribution
 
-* Chen Biao(1377681089@qq.com) -- Implement the mutable.py.
-* Guo Zhaoxin(zhaoxin_guo@163.com) -- Implement the mutableTest.py.
+* Chen Biao(1377681089@qq.com) 
+  * Implement the `mutable.py`
+  * Write `README.md`
+  * Source code framework construction
+
+* Guo Zhaoxin(zhaoxin_guo@163.com)
+  * Implement the `mutableTest.py`
+  * Write `README.md`
+  * Created GitHub repository
 
 ## Features 
 
-- `size()`: Return the size of Unrolled linked list
-- `from_list(list)`: Conversion from list
-- `to_list`: Conversion to list
+- `add(elem)`: Add a new element to the end of unrolled linked list
 - `set(idx, obj)`: setting value by index
 - `remove(idx)`: remove value by index
+- `size()`: Return the size of unrolled linked list
+- `member(elem):` Return a boolean indicating whether the element is a member of the unrolled linked list
+- `reverse()`: reverse the unrolled linked list
+- `from_list(list)`: Conversion from list
+- `to_list`: Conversion to list
 - `get(idx)`: get value by index
+- `filter()`: Filter data structure by specific predicate
+- `map()`: Map elements of the unrolled linked list by specific function.
+- `reduce()`: Process elements of the unrolled linked list to build a return value by specific function
 - PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
 ## Changelog 
 
+* 13.4.2022 - 4
+  * Guo zhaoxin upload mutableTest.py. Implementing some features.
 * 13.4.2022 - 3
-  * Chen Biao upload mutable.py. Implementing some features
+  * Chen Biao upload mutable.py. Implementing some features.
 * 13.4.2022 - 2
-  * Chen Biao Update README. Add Project structure description and Features.
+  * Chen Biao update README. Add Project structure description and Features.
 * 13.4.2022 - 1
-  * Update README.
+  * Guo Zhaoxin Update README.
 * 13.4.2022 - 0
   * Initial 
