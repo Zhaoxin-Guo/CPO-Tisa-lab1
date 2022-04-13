@@ -1,10 +1,13 @@
 # Tisa-lab1-variant1
+
 This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring.
 
 ## Variant
-* Unrolled linked list
+
+* 1.Unrolled linked list
 
 ## Laboratory work description
+
 1. You can use the built-in list inside nodes
 
 2. You need to check that your implementation correctly works with None value 
@@ -15,24 +18,24 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 
 ## Project structure description
-* `Mutable.py` -- 
-* `MutableTest.py` -- 
+
+* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`from_list`、`to_list`、`set`、`remove`、and`get` features. 
+* `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
-* Chen Biao(1377681089@qq.com) -- 
-* Guo Zhaoxin(zhaoxin_guo@163.com) -- 
+
+* Chen Biao(1377681089@qq.com) -- Implement the mutable.py.
+* Guo Zhaoxin(zhaoxin_guo@163.com) -- Implement the mutableTest.py.
 
 ## Features 
 
+- PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
+
 ## Changelog 
+
+* 13.4.2022 - 2
+  * Update README. Add Project structure description and Features.
 * 13.4.2022 - 1
   * Update README.
 * 13.4.2022 - 0
   * Initial 
-
-
-
-
-
-
-
