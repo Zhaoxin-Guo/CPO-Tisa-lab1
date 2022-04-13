@@ -8,10 +8,6 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Laboratory work description
 
-* You can use the built-in list inside nodes
-* You need to check that your implementation correctly works with None value 
-* A user should specify node size
-* You need to implement functions/methods for getting/setting value by index
 1. Add a new element
 2. Set an element with specific index / key
 3. Remove an element by the index for list
@@ -23,10 +19,15 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 9. Data structure should be an iterator
 10. Data structure should be a monoid and implement empty and concat methods
 
+* Requires：
+  * You can use the built-in list inside nodes
+  * You need to check that your implementation correctly works with None value 
+  * A user should specify node size
+  * You need to implement functions/methods for getting/setting value by index
 
 ## Project structure description
 
-* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`from_list`、`to_list`、`set`、`remove`、and`get` features. 
+* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`from_list`、`to_list`、`set`、`remove`、`get` and other features. 
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
@@ -60,12 +61,38 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 ## Changelog 
 
 * 13.4.2022 - 4
-  * Guo zhaoxin upload mutableTest.py. Implementing some features.
+  * Guo zhaoxin upload mutableTest.py. 
+  * Implementing some features.
 * 13.4.2022 - 3
-  * Chen Biao upload mutable.py. Implementing some features.
+  * Chen Biao upload mutable.py.
+  * Implementing some features.
 * 13.4.2022 - 2
   * Chen Biao update README. Add Project structure description and Features.
 * 13.4.2022 - 1
   * Guo Zhaoxin Update README.
 * 13.4.2022 - 0
   * Initial 
+
+
+## Design notes
+
+### Implementation restrictions
+
+
+### Advantages and disadvantages of unittest
+* Advantages：
+  * Support automated testing
+  * Secondary development is convenient
+  * Organize test cases together by class
+* Disadvantages：
+  * Must be written in TestCase subclass
+  * Must write test method
+  * Difficult to expand
+
+### Advantages and disadvantages of PBT tests
+* Advantages：
+  * Check with automatically generated input data to ensure enough test cases
+  * Allows developers to increase test coverage and effectively save time
+* Disadvantages：
+  * Not covering all examples
+ 
