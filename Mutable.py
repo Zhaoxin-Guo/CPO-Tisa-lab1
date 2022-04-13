@@ -117,3 +117,37 @@ class UnrolledLinkedList:
             idx -= cur.numElements
             cur = cur.next
         return cur.elements[idx]
+
+    def is_member(self, member):
+        cur = self.head.next
+        count = 0
+        while cur is not None:
+            for i in range(0, cur.numElements):
+                count = count + 1
+                if member == cur.elements[i]:
+                    index = count - 1
+                    return index
+            return -1
+
+    def filter(self, f):
+        cur = self.head.next
+        for i in range(0, cur.numElements):
+            cur.elements[i] = f(cur.elements[i])
+        return self.to_list()
+
+    def map(self, f):
+        cur = self.head.next
+        while cur is not None:
+            for i in range(0, cur.numElements):
+                cur.elements[i] = f(cur.elements[i])
+            cur = cur.next
+
+    def reduce(self, f, initial_state):
+        state = initial_state
+        cur = self.head.next
+        while cur is not None:
+            for i in range(0, cur.numElements):
+                state = f(state, cur.elements[i])
+            cur = cur.next
+        return state
+
