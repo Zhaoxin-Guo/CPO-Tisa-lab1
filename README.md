@@ -2,7 +2,7 @@
 This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring.
 
 ## Variant
-Unrolled linked list
+* Unrolled linked list
 
 ## Laboratory work description
 1. You can use the built-in list inside nodes
