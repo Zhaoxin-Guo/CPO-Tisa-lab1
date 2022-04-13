@@ -57,19 +57,23 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 - PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
 ## Changelog 
-
+* 13.4.2022 - 6
+  * Guo Zhaoxin updated `mutableTest.py`. 
+  * Testing `is_member(member)`、`filter()`、`map()`and`reduce()`features.
+  * Updated `README.md`.
 * 13.4.2022 - 5
-  * Chen Biao updated `mutableTest.py`. 
+  * Chen Biao updated `mutable.py`. 
   * Implementing `is_member(member)`、`filter()`、`map()`and`reduce()` features.
-  * Updateing `README.md`.
+  * Updated `README.md`.
 * 13.4.2022 - 4
   * Guo zhaoxin upload `mutableTest.py`. 
-  * Implementing some features.
+  * Testing some features.
 * 13.4.2022 - 3
   * Chen Biao upload `mutable.py`.
   * Implementing some features.
 * 13.4.2022 - 2
-  * Chen Biao updated `README.md`. Add Project structure description and Features.
+  * Chen Biao updated `README.md`. 
+  * Add Project structure description and Features.
 * 13.4.2022 - 1
   * Guo Zhaoxin Updated `README.md`.
 * 13.4.2022 - 0
