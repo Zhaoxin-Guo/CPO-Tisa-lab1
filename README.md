@@ -29,12 +29,20 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Features 
 
+- `size()`: Return the size of Unrolled linked list
+- `from_list(list)`: Conversion from list
+- `to_list`: Conversion to list
+- `set(idx, obj)`: setting value by index
+- `remove(idx)`: remove value by index
+- `get(idx)`: get value by index
 - PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
 ## Changelog 
 
+* 13.4.2022 - 3
+  * Chen Biao upload mutable.py. Implementing some features
 * 13.4.2022 - 2
-  * Update README. Add Project structure description and Features.
+  * Chen Biao Update README. Add Project structure description and Features.
 * 13.4.2022 - 1
   * Update README.
 * 13.4.2022 - 0
