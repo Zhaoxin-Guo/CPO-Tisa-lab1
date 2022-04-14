@@ -72,6 +72,10 @@ PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality
 
 ## Changelog 
 
+* 14.4.2022- 9
+  * Chen Biao add `requirements.txt`. 
+  * Add `check.yml`
+  * Updated `README.md`.
 * 14.4.2022- 8
   * Guo Zhaoxin updated `mutableTest.py`. 
   * Testing `iterator`feature.
