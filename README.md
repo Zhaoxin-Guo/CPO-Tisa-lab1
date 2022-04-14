@@ -15,7 +15,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Project structure description
 
-* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`set`、`remove`、`get`and other features.
+* `Mutable.py` -- implementation of `UnrolledLinkedList`
+class with `size`、`set`、`remove`、`get`and other features.
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
@@ -38,7 +39,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 `size()`: Return the size of unrolled linked list
 
-`is_member(member)`: Return a boolean indicating whether the element is a member of the unrolled linked list
+`is_member(member)`: Return a boolean indicating whether
+the element is a member of the unrolled linked list
 
 `from_list(list)`: Conversion from list
 
@@ -50,7 +52,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 `map()`: Map elements of the unrolled linked list by specific function
 
-`reduce()`: Process elements of the unrolled linked list to build a return value by specific function
+`reduce()`: Process elements of the unrolled linked list
+to build a return value by specific function
 
 `__iter__()`: Implementation an iterator in Python style
 
