@@ -21,11 +21,11 @@ jobs:
 
       # code style checks
       - run: pip install pycodestyle
-      - run: pycodestyle mutableTest.py
+      - run: pycodestyle MutableTest.py
 
       # type annotation checks
       - run: pip install mypy
-      - run: mypy mutableTest.py
+      - run: mypy MutableTest.py
 
       # if you pretend to make a typed version of your program, you should uncomment this line:  
       # - run: mypy . --strict
