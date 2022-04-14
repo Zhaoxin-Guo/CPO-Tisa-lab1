@@ -60,18 +60,6 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         lst.remove(0)
         self.assertEqual(lst.to_list(), [])
 
-    def test_remove(self):
-        lst = UnrolledLinkedList()
-        lst.set(0, 'a')
-        lst.set(1, 'b')
-        lst.set(2, 'c')
-        lst.remove(2)
-        self.assertEqual(lst.to_list(), ['a', 'b'])
-        lst.remove(1)
-        self.assertEqual(lst.to_list(), ['a'])
-        lst.remove(0)
-        self.assertEqual(lst.to_list(), [])
-
     def test_is_member(self):
         x = ['a', 'b', 'c']
         lst = UnrolledLinkedList()
@@ -124,6 +112,20 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
             lst = UnrolledLinkedList()
             lst.from_list(e)
             self.assertEqual(lst.reduce(lambda st, _: st + 1, 0), lst.size())
+
+    def test_iter(self):
+        x = [1, 2, 3]
+        lst = UnrolledLinkedList()
+        lst.from_list(x)
+        tmp = []
+        for e in lst.head.next.elements:
+            if e != None:
+                tmp.append(e)
+        self.assertEqual(x, tmp)
+        self.assertEqual(lst.to_list(), tmp)
+
+        i = iter(UnrolledLinkedList())
+        self.assertRaises(StopIteration, lambda: next(i))
 
 
     @given(st.lists(st.integers()))
