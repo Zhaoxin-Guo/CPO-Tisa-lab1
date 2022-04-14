@@ -16,7 +16,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 ## Project structure description
 
 * `Mutable.py` -- implementation of `UnrolledLinkedList`
- class with `size`、`set`、`remove`、`get`and other features.
+ class with `size`,`set`,`remove`,`get`and other features.
 
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
@@ -60,7 +60,7 @@ to build a return value by specific function
 
 `__next__()`: Implementation an iterator in Python style
 
-PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
+PBT: `test_from_list_to_list_equality`,`test_python_len_and_list_size_equality`
 
 ## Changelog
 
@@ -78,11 +78,11 @@ PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality
   * Updated `README.md`. Add Implementation restrictions.
 * 13.4.2022 - 6
   * Guo Zhaoxin updated `mutableTest.py`.
-  * Testing `is_member(member)`、`filter()`、`map()`and`reduce()`features.
+  * Testing `is_member(member)`,`filter()`,`map()`and`reduce()`features.
   * Updated `README.md`. Add Design notes.
 * 13.4.2022 - 5
   * Chen Biao updated `mutable.py`.
-  * Implementing `is_member(member)`、`filter()`、`map()`and`reduce()` features.
+  * Implementing `is_member(member)`,`filter()`,`map()`and`reduce()` features.
   * Updated `README.md`.
 * 13.4.2022 - 4
   * Guo zhaoxin upload `mutableTest.py`.
