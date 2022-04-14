@@ -17,6 +17,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 * `Mutable.py` -- implementation of `UnrolledLinkedList`
 class with `size`、`set`、`remove`、`get`and other features.
+
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
