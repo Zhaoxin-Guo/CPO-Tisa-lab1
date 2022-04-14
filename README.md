@@ -85,7 +85,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 * 13.4.2022 - 2
   * Chen Biao updated `README.md`. Add Project structure description and Features.
 * 13.4.2022 - 1
-  * Guo Zhaoxin Updated `README.md`.
+  * Guo Zhaoxin updated `README.md`.
 * 13.4.2022 - 0
   * Initial.
 
@@ -94,7 +94,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ### Implementation restrictions
 
-The capacity of unrolled linked list is artificial and can not be customized.
+The capacity of unrolled linked list is manually set and cannot be customized.
 
 
 ### Advantages and disadvantages of unittest
