@@ -5,6 +5,7 @@ class Node:
         self.elements = [None] * capacity
         self.cap = capacity  # 节点的容量
 
+
 class UnrolledLinkedList:
     def __init__(self):
         self.total_size = 0  # 链表的总元素个数
@@ -51,6 +52,7 @@ class UnrolledLinkedList:
                 res.append(cur.elements[i])
             cur = cur.next
         return res
+
 
     def set(self, idx, obj):
         if idx < 0 or idx > self.total_size:

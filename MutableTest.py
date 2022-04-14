@@ -6,6 +6,7 @@ import hypothesis.strategies as st
 
 class TestMutableUnrolled_linked_list(unittest.TestCase):
 
+
     def test_size(self):
         lst = UnrolledLinkedList()
         self.assertEqual(lst.size(), 0)
@@ -13,6 +14,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         self.assertEqual(lst.size(), 1)
         lst.set(1, 'b')
         self.assertEqual(lst.size(), 2)
+
 
     def test_from_list(self):
         # 每次测试都得初始化一遍，要不然上一次的结果还在
@@ -25,6 +27,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         lst = UnrolledLinkedList()
         lst.from_list(['a', 'b'])
         self.assertEqual(lst.to_list(), ['a', 'b'])
+
 
     def test_to_list(self):
         lst = UnrolledLinkedList()
@@ -40,6 +43,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         self.assertEqual(lst.to_list(), ['a'])
         lst.set(1, 'b')
         self.assertEqual(lst.to_list(), ['a', 'b'])
+
 
     def test_get(self):
         lst = UnrolledLinkedList()
@@ -78,6 +82,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         lst.filter(f)
         self.assertEqual([5, 6, 7], lst.to_list())
 
+
     def test_map(self):
         lst = UnrolledLinkedList()
         lst.map(str)
@@ -92,6 +97,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
         lst.from_list([1, 2, 3])
         lst.map(lambda x: x + 1)
         self.assertEqual(lst.to_list(), [2, 3, 4])
+
 
     def test_reduce(self):
         # sum of empty list
@@ -113,6 +119,7 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
             lst.from_list(e)
             self.assertEqual(lst.reduce(lambda st, _: st + 1, 0), lst.size())
 
+
     def test_iter(self):
         x = [1, 2, 3]
         lst = UnrolledLinkedList()
@@ -126,7 +133,6 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
 
         i = iter(UnrolledLinkedList())
         self.assertRaises(StopIteration, lambda: next(i))
-
 
     @given(st.lists(st.integers()))
     def test_from_list_to_list_equality(self, a):
