@@ -21,18 +21,18 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 * Requires：
   * You can use the built-in list inside nodes
-  * You need to check that your implementation correctly works with None value 
+  * You need to check that your implementation correctly works with None value
   * A user should specify node size
   * You need to implement functions/methods for getting/setting value by index
 
 ## Project structure description
 
-* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`from_list`、`to_list`、`set`、`remove`、`get` and other features. 
+* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`set`、`remove`and other features.
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
 
-* Chen Biao(1377681089@qq.com) 
+* Chen Biao(1377681089@qq.com)
   * Implement the `mutable.py`
   * Write `README.md`
   * Source code framework construction
@@ -42,7 +42,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
   * Write `README.md`
   * Created GitHub repository
 
-## Features 
+## Features
 
 `set(idx, obj)`: setting value by index
 
@@ -70,30 +70,30 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
-## Changelog 
+## Changelog
 
 * 14.4.2022- 9
-  * Chen Biao add `requirements.txt`. 
+  * Chen Biao add `requirements.txt`.
   * Add `check.yml`
   * Updated `README.md`.
 * 14.4.2022- 8
-  * Guo Zhaoxin updated `mutableTest.py`. 
+  * Guo Zhaoxin updated `mutableTest.py`.
   * Testing `iterator`feature.
   * Updated `README.md`.
 * 14.4.2022- 7
-  * Chen Biao updated `mutable.py`. 
+  * Chen Biao updated `mutable.py`.
   * Implementing `iterator`feature.
   * Updated `README.md`. Add Implementation restrictions.
 * 13.4.2022 - 6
-  * Guo Zhaoxin updated `mutableTest.py`. 
+  * Guo Zhaoxin updated `mutableTest.py`.
   * Testing `is_member(member)`、`filter()`、`map()`and`reduce()`features.
   * Updated `README.md`. Add Design notes.
 * 13.4.2022 - 5
-  * Chen Biao updated `mutable.py`. 
+  * Chen Biao updated `mutable.py`.
   * Implementing `is_member(member)`、`filter()`、`map()`and`reduce()` features.
   * Updated `README.md`.
 * 13.4.2022 - 4
-  * Guo zhaoxin upload `mutableTest.py`. 
+  * Guo zhaoxin upload `mutableTest.py`.
   * Testing some features.
 * 13.4.2022 - 3
   * Chen Biao upload `mutable.py`.
@@ -105,13 +105,11 @@ PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality
 * 13.4.2022 - 0
   * Initial.
 
-
 ## Design notes
 
 ### Implementation restrictions
 
 The capacity of unrolled linked list is manually set and cannot be customized.
-
 
 ### Advantages and disadvantages of unittest
 
