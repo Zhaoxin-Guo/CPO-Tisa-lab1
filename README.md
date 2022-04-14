@@ -8,16 +8,16 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Laboratory work description
 
-1. Add a new element
-2. Set an element with specific index / key
-3. Remove an element by the index for list
-4. Access: size、is member
-5. Conversion from/to list: from_list 、to_list
-6. Filter data structure by specific predicate
-7. Map structure by specific function
-8. Reduce process structure elements to build a return value by specific functions
-9. Data structure should be an iterator
-10. Data structure should be a monoid and implement empty and concat methods
+1.  Add a new element
+2.  Set an element with specific index / key
+3.  Remove an element by the index for list
+4.  Access: size、is member
+5.  Conversion from/to list: from_list 、to_list
+6.  Filter data structure by specific predicate
+7.  Map structure by specific function
+8.  Reduce process structure elements to build a return value by specific functions
+9.  Data structure should be an iterator
+10.  Data structure should be a monoid and implement empty and concat methods
 
 * Requires：
   * You can use the built-in list inside nodes
@@ -27,7 +27,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Project structure description
 
-* `Mutable.py` -- implementation of `UnrolledLinkedList` class with `size`、`set`、`remove`and other features.
+* `Mutable.py` -- implementation of `UnrolledLinkedList` 
+class with `size`、`set`、`remove`、`get`and other features.
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
 ## Contribution
@@ -50,7 +51,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 `size()`: Return the size of unrolled linked list
 
-`is_member(member)`: Return a boolean indicating whether the element is a member of the unrolled linked list
+`is_member(member)`: Return a boolean indicating whether 
+the element is a member of the unrolled linked list
 
 `from_list(list)`: Conversion from list
 
@@ -62,7 +64,8 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 `map()`: Map elements of the unrolled linked list by specific function
 
-`reduce()`: Process elements of the unrolled linked list to build a return value by specific function
+`reduce()`: Process elements of the unrolled linked list 
+to build a return value by specific function
 
 `__iter__()`: Implementation an iterator in Python style
 
