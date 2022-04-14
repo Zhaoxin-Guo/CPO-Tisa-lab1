@@ -44,19 +44,31 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Features 
 
-- `set(idx, obj)`: setting value by index
-- `remove(idx)`: remove value by index
-- `size()`: Return the size of unrolled linked list
-- `is_member(member)`: Return a boolean indicating whether the element is a member of the unrolled linked list
-- `from_list(list)`: Conversion from list
-- `to_list`: Conversion to list
-- `get(idx)`: get value by index
-- `filter()`: Filter data structure by specific predicate
-- `map()`: Map elements of the unrolled linked list by specific function
-- `reduce()`: Process elements of the unrolled linked list to build a return value by specific function
-- `__iter__()`: Implementation an iterator in Python style
-- `__next__()`: Implementation an iterator in Python style
-- PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
+`set(idx, obj)`: setting value by index
+
+`remove(idx)`: remove value by index
+
+`size()`: Return the size of unrolled linked list
+
+`is_member(member)`: Return a boolean indicating whether the element is a member of the unrolled linked list
+
+`from_list(list)`: Conversion from list
+
+`to_list`: Conversion to list
+
+`get(idx)`: get value by index
+
+`filter()`: Filter data structure by specific predicate
+
+`map()`: Map elements of the unrolled linked list by specific function
+
+`reduce()`: Process elements of the unrolled linked list to build a return value by specific function
+
+`__iter__()`: Implementation an iterator in Python style
+
+`__next__()`: Implementation an iterator in Python style
+
+PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
 ## Changelog 
 
