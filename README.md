@@ -60,6 +60,10 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Changelog 
 
+* 14.4.2022- 9
+  * Chen Biao add `requirements.txt`. 
+  * Add `check.yml`
+  * Updated `README.md`.
 * 14.4.2022- 8
   * Guo Zhaoxin updated `mutableTest.py`. 
   * Testing `iterator`feature.
