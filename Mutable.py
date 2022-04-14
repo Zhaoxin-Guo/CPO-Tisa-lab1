@@ -53,7 +53,6 @@ class UnrolledLinkedList:
             cur = cur.next
         return res
 
-
     def set(self, idx, obj):
         if idx < 0 or idx > self.total_size:
             return
@@ -94,7 +93,6 @@ class UnrolledLinkedList:
         cur.numElements += 1
         self.total_size += 1
 
-
     def remove(self, idx):
         if idx < 0 or idx >= self.total_size:
             return
@@ -113,7 +111,8 @@ class UnrolledLinkedList:
         cur.elements[cur.numElements - 1] = None
         cur.numElements -= 1
 
-        if cur.next.cap != -1 and cur.cap >= cur.numElements + cur.next.numElements:
+        if cur.next.cap != -1 \
+                and cur.cap >= cur.numElements + cur.next.numElements:
             # 合并删除元素节点的下一节点至当前节点
             next = cur.next
             for i in range(0, next.numElements):
@@ -165,4 +164,3 @@ class UnrolledLinkedList:
                 state = f(state, cur.elements[i])
             cur = cur.next
         return state
-
