@@ -12,7 +12,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 2. Set an element with specific index / key
 3. Remove an element by the index for list
 4. Access: size、is member
-5. Conversion from/to list: - from_list 、to_list
+5. Conversion from/to list: from_list 、to_list
 6. Filter data structure by specific predicate
 7. Map structure by specific function
 8. Reduce process structure elements to build a return value by specific functions
@@ -60,14 +60,18 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ## Changelog 
 
-* 14.4.2022-7
+* 14.4.2022- 8
+  * Guo Zhaoxin updated `mutableTest.py`. 
+  * Testing `iterator`feature.
+  * Updated `README.md`.
+* 14.4.2022- 7
   * Chen Biao updated `mutable.py`. 
-  * Implementing `iterator`features.
+  * Implementing `iterator`feature.
   * Updated `README.md`. Add Implementation restrictions.
 * 13.4.2022 - 6
   * Guo Zhaoxin updated `mutableTest.py`. 
   * Testing `is_member(member)`、`filter()`、`map()`and`reduce()`features.
-  * Updated `README.md`.
+  * Updated `README.md`. Add Design notes.
 * 13.4.2022 - 5
   * Chen Biao updated `mutable.py`. 
   * Implementing `is_member(member)`、`filter()`、`map()`and`reduce()` features.
@@ -79,8 +83,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
   * Chen Biao upload `mutable.py`.
   * Implementing some features.
 * 13.4.2022 - 2
-  * Chen Biao updated `README.md`. 
-  * Add Project structure description and Features.
+  * Chen Biao updated `README.md`. Add Project structure description and Features.
 * 13.4.2022 - 1
   * Guo Zhaoxin Updated `README.md`.
 * 13.4.2022 - 0
@@ -91,7 +94,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 
 ### Implementation restrictions
 
-​	The capacity of Unrolled linked list is artificial and can not be customized
+The capacity of unrolled linked list is artificial and can not be customized.
 
 
 ### Advantages and disadvantages of unittest
