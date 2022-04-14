@@ -18,6 +18,21 @@ class UnrolledLinkedList:
         """for str() implementation for printing"""
         return " : ".join(map(str, self.to_list()))
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.head.numElements == 0:
+            raise StopIteration
+        else:
+            count = self.head.next.numElements
+            while count is not 0:
+                for i in range(0, self.head.next.numElements):
+                    count = count - 1
+                    tmp = self.head.next.elements[i]
+                    return tmp
+            self.head = self.head.next
+
     def size(self):
         return self.total_size
 

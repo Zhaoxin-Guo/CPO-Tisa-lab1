@@ -52,11 +52,18 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 - `to_list`: Conversion to list
 - `get(idx)`: get value by index
 - `filter()`: Filter data structure by specific predicate
-- `map()`: Map elements of the unrolled linked list by specific function.
+- `map()`: Map elements of the unrolled linked list by specific function
 - `reduce()`: Process elements of the unrolled linked list to build a return value by specific function
+- `__iter__()`: Implementation an iterator in Python style
+- `__next__()`: Implementation an iterator in Python style
 - PBT: `test_from_list_to_list_equality`、`test_python_len_and_list_size_equality`
 
 ## Changelog 
+
+* 14.4.2022-7
+  * Chen Biao updated `mutable.py`. 
+  * Implementing `iterator`features.
+  * Updated `README.md`. Add Implementation restrictions.
 * 13.4.2022 - 6
   * Guo Zhaoxin updated `mutableTest.py`. 
   * Testing `is_member(member)`、`filter()`、`map()`and`reduce()`features.
@@ -77,15 +84,18 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 * 13.4.2022 - 1
   * Guo Zhaoxin Updated `README.md`.
 * 13.4.2022 - 0
-  * Initial 
+  * Initial.
 
 
 ## Design notes
 
 ### Implementation restrictions
 
+​	The capacity of Unrolled linked list is artificial and can not be customized
+
 
 ### Advantages and disadvantages of unittest
+
 * Advantages：
   * Support automated testing
   * Secondary development is convenient
@@ -96,6 +106,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
   * Difficult to expand
 
 ### Advantages and disadvantages of PBT tests
+
 * Advantages：
   * Check with automatically generated input data to ensure enough test cases
   * Allows developers to increase test coverage and effectively save time
