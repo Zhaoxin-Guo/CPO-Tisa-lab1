@@ -113,20 +113,6 @@ class TestMutableUnrolled_linked_list(unittest.TestCase):
             lst.from_list(e)
             self.assertEqual(lst.reduce(lambda st, _: st + 1, 0), lst.size())
 
-    def test_iter(self):
-        x = [1, 2, 3]
-        lst = UnrolledLinkedList()
-        lst.from_list(x)
-        tmp = []
-        for e in lst.head.next.elements:
-            if e != None:
-                tmp.append(e)
-        self.assertEqual(x, tmp)
-        self.assertEqual(lst.to_list(), tmp)
-
-        i = iter(UnrolledLinkedList())
-        self.assertRaises(StopIteration, lambda: next(i))
-
 
     @given(st.lists(st.integers()))
     def test_from_list_to_list_equality(self, a):
