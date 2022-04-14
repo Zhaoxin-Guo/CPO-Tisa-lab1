@@ -140,5 +140,6 @@ class TestMutable(unittest.TestCase):
         lst.from_list(a)
         self.assertEqual(lst.size(), len(a))
 
+        
 if __name__ == '__main__':
     unittest.main()
