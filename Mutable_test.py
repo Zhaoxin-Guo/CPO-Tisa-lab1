@@ -15,7 +15,8 @@ class TestMutable(unittest.TestCase):
         self.assertEqual(lst.size(), 2)
 
     def test_from_list(self):
-        # Each test has to be initialized again, otherwise the result of the last time is still exist.
+        # Each test has to be initialized again
+        # Otherwise the result of the last time is still exis
         lst = UnrolledLinkedList()
         lst.from_list([])
         self.assertEqual(lst.to_list(), [])
