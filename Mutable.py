@@ -9,7 +9,7 @@ class Node:
 class UnrolledLinkedList:
     def __init__(self):
         self.total_size = 0  # The total number of elements
-        self.head, self.tail = Node(-1), Node(-1)  #  Sentinel node
+        self.head, self.tail = Node(-1), Node(-1)  # Sentinel node
         node = Node()
         self.head.next = node
         node.next = self.tail
@@ -113,7 +113,7 @@ class UnrolledLinkedList:
 
         if cur.next.cap != -1 \
                 and cur.cap >= cur.numElements + cur.next.numElements:
-            # Merge the next node of the deleted element node to the current node
+            # Merge the next node to the current node
             next = cur.next
             for i in range(0, next.numElements):
                 cur.elements[cur.numElements + i] = next.elements[i]
