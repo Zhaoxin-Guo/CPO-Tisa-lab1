@@ -16,7 +16,7 @@ This repo is the Lab1 of Computational Process Organization in ITMO, 2022 spring
 ## Project structure description
 
 * `Mutable.py` -- implementation of `UnrolledLinkedList`
- class with `size`,`set`,`remove`,`get`and other features.
+  class with `size`,`set`,`remove`,`get`and other features.
 
 * `MutableTest.py` -- unit and PBT tests for `Mutable`.
 
@@ -64,6 +64,10 @@ PBT: `test_from_list_to_list_equality`,`test_python_len_and_list_size_equality`
 
 ## Changelog
 
+* 20.4.2022- 9
+  * Chen Biao update `filter` feature.
+  * Add `monoid`.
+  * Updated `README.md`.
 * 14.4.2022- 9
   * Chen Biao add `requirements.txt`.
   * Add `check.yml`
