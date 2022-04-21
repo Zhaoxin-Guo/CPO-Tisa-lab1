@@ -64,36 +64,27 @@ PBT: `test_from_list_to_list_equality`,`test_python_len_and_list_size_equality`
 
 ## Changelog
 
-* 20.4.2022- 11
-  * Chen Biao updated `mutable.py`.
-* 20.4.2022- 10
+* 20.4.2022 - 8
   * Guo Zhaoxin updated `mutableTest.py`.
-* 14.4.2022- 9
-  * Chen Biao add `requirements.txt`.
-  * Add `check.yml`
   * Updated `README.md`.
-* 14.4.2022- 8
+* 20.4.2022 - 7
+  * Chen Biao update `filter` feature.
+  * Add `monoid`.
+* 14.4.2022 - 6
   * Guo Zhaoxin updated `mutableTest.py`.
   * Testing `iterator`feature.
-  * Updated `README.md`.
-* 14.4.2022- 7
+* 14.4.2022 - 5
   * Chen Biao updated `mutable.py`.
   * Implementing `iterator`feature.
+  * Add `check.yml`
   * Updated `README.md`. Add Implementation restrictions.
-* 13.4.2022 - 6
+* 13.4.2022 - 4
   * Guo Zhaoxin updated `mutableTest.py`.
   * Testing `is_member(member)`,`filter()`,`map()`and`reduce()`features.
   * Updated `README.md`. Add Design notes.
-* 13.4.2022 - 5
+* 13.4.2022 - 3
   * Chen Biao updated `mutable.py`.
   * Implementing `is_member(member)`,`filter()`,`map()`and`reduce()` features.
-  * Updated `README.md`.
-* 13.4.2022 - 4
-  * Guo zhaoxin upload `mutableTest.py`.
-  * Testing some features.
-* 13.4.2022 - 3
-  * Chen Biao upload `mutable.py`.
-  * Implementing some features.
 * 13.4.2022 - 2
   * Chen Biao updated `README.md`. Add Project structure description and Features.
 * 13.4.2022 - 1
