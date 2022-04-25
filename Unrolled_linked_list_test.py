@@ -180,18 +180,16 @@ class TestMutable(unittest.TestCase):
         lst, ans1 = lst1.concat(lst2)
         # (a * b) * c
         lst, ans1 = lst.concat(lst3)
-        # print(ans)
 
         # concat b c and b * c
         lst, ans2 = lst2.concat(lst3)
         # a * (b * c)
-        lst, ans2 = lst.concat(lst3)
+        lst, ans2 = lst.concat(lst1)
         self.assertEqual(ans1, ans2)
 
         # Identity element
         # a * e
-        x = []
-        lst2.from_list(x)
+        lst2.from_list(lst2.empty())
         lst, ans3 = lst1.concat(lst2)
         # e * a
         lst, ans4 = lst2.concat(lst1)
