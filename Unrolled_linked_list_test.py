@@ -1,6 +1,6 @@
 import unittest
 from hypothesis import given
-from Mutable import UnrolledLinkedList
+from Unrolled_linked_list import UnrolledLinkedList
 import hypothesis.strategies as st
 
 
@@ -81,13 +81,6 @@ class TestMutable(unittest.TestCase):
         lst.filter(lambda e: e % 2 == 0)
         self.assertEqual([2, 4], lst.to_list())
 
-    # def test_filter(self):
-    #     x = [1, 2, 3, 4]
-    #     lst = UnrolledLinkedList()
-    #     lst.from_list(x)
-    #     lst.filter()
-    #     self.assertEqual([2, 4], lst.to_list())
-
     def test_get(self):
         lst = UnrolledLinkedList()
         lst.set(0, 'a')
@@ -144,17 +137,15 @@ class TestMutable(unittest.TestCase):
         self.assertRaises(StopIteration, lambda: next(i))
 
         lst = UnrolledLinkedList()
-        lst1 = UnrolledLinkedList()
         x = [1, 2, 3, 4, 5]
         lst.from_list(x)
-        lst1.from_list(x)
         i1 = iter(lst)
-        i2 = iter(lst1)
-        next(i1)  # -> 1
-        next(i1)  # -> 2
-        next(i2)  # -> 1
-        next(i2)  # -> 2
-        next(i1)  # -> 3
+        i2 = iter(lst)
+        self.assertEqual(next(i1), 1)
+        self.assertEqual(next(i1), 2)
+        self.assertEqual(next(i2), 1)
+        self.assertEqual(next(i2), 2)
+        self.assertEqual(next(i1), 3)
 
     def test_empty(self):
         lst = UnrolledLinkedList()
@@ -186,22 +177,24 @@ class TestMutable(unittest.TestCase):
 
         # Associativity
         # concat a b and a * b
-        lst, ans1 = lst1.concat(lst1.to_list(), lst2.to_list())
+        lst, ans1 = lst1.concat(lst2)
         # (a * b) * c
-        lst, ans1 = lst1.concat(lst.to_list(), lst3.to_list())
+        lst, ans1 = lst.concat(lst3)
         # print(ans)
 
         # concat b c and b * c
-        lst, ans2 = lst1.concat(lst2.to_list(), lst3.to_list())
+        lst, ans2 = lst2.concat(lst3)
         # a * (b * c)
-        lst, ans2 = lst1.concat(lst.to_list(), lst3.to_list())
+        lst, ans2 = lst.concat(lst3)
         self.assertEqual(ans1, ans2)
 
         # Identity element
         # a * e
-        lst, ans3 = lst1.concat(lst1.to_list(), lst2.empty())
-        # a * e
-        lst, ans4 = lst1.concat(lst2.empty(), lst1.to_list())
+        x = []
+        lst2.from_list(x)
+        lst, ans3 = lst1.concat(lst2)
+        # e * a
+        lst, ans4 = lst2.concat(lst1)
         self.assertEqual(ans3, ans4)
 
 
