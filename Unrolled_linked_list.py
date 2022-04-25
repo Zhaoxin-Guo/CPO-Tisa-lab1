@@ -5,7 +5,7 @@ class Node:
         self.elements = [None] * capacity
         self.cap = capacity  # Node capacity
 
-        
+
 class UnrolledLinkedList:
     def __init__(self):
         self.total_size = 0  # The total number of elements
