@@ -1,14 +1,15 @@
 class Node:
     def __init__(self, capacity=5):
         self.next = None
-        self.numElements = 0  # 节点的元素个数
+        self.numElements = 0  # The number of elements in the node
         self.elements = [None] * capacity
-        self.cap = capacity  # 节点的容量
+        self.cap = capacity  # Node capacity
 
+        
 class UnrolledLinkedList:
     def __init__(self):
-        self.total_size = 0  # 链表的总元素个数
-        self.head, self.tail = Node(-1), Node(-1)  # 哨兵节点
+        self.total_size = 0  # The total number of elements
+        self.head, self.tail = Node(-1), Node(-1)  # Sentinel node
         node = Node()
         self.head.next = node
         node.next = self.tail
@@ -55,7 +56,7 @@ class UnrolledLinkedList:
 
     def add(self, obj):
         idx = self.total_size
-        # 找到插入节点和位置
+        # find insertion node and position
         cur = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
@@ -64,13 +65,13 @@ class UnrolledLinkedList:
             cur = cur.next
 
         if cur.numElements == cur.cap:
-            # 插入节点已满，创建新节点
+            # The insert node is full, create a new node
             node = Node()
             next = cur.next
             cur.next = node
             node.next = next
 
-            # 将插入节点一般元素移至新节点
+            # Move the inserted node general element to the new node
             move_idx = cur.numElements // 2
             for i in range(move_idx, cur.numElements):
                 node.elements[i - move_idx] = cur.elements[i]
@@ -78,12 +79,12 @@ class UnrolledLinkedList:
                 cur.numElements -= 1
                 node.numElements += 1
 
-            # 更新插入位置
+            # Update the caret position
             if idx >= move_idx:
                 idx -= move_idx
                 cur = node
 
-        # 插入元素
+        # Insert element
         for i in range(cur.numElements - 1, idx - 1, -1):
             cur.elements[i + 1] = cur.elements[i]
         cur.elements[idx] = obj
@@ -95,7 +96,7 @@ class UnrolledLinkedList:
         if idx < 0 or idx > self.total_size:
             return
 
-        # 找到插入节点和位置
+        # Find insertion node and position
         cur = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
@@ -104,13 +105,13 @@ class UnrolledLinkedList:
             cur = cur.next
 
         if cur.numElements == cur.cap:
-            # 插入节点已满，创建新节点
+            # The insert node is full, create a new node
             node = Node()
             next = cur.next
             cur.next = node
             node.next = next
 
-            # 将插入节点一般元素移至新节点
+            # Move the inserted node general element to the new node
             move_idx = cur.numElements // 2
             for i in range(move_idx, cur.numElements):
                 node.elements[i - move_idx] = cur.elements[i]
@@ -118,12 +119,12 @@ class UnrolledLinkedList:
                 cur.numElements -= 1
                 node.numElements += 1
 
-            # 更新插入位置
+            # Update the caret position
             if idx >= move_idx:
                 idx -= move_idx
                 cur = node
 
-        # 插入元素
+        # Insert element
         for i in range(cur.numElements - 1, idx - 1, -1):
             cur.elements[i + 1] = cur.elements[i]
         cur.elements[idx] = obj
@@ -135,7 +136,7 @@ class UnrolledLinkedList:
         if idx < 0 or idx >= self.total_size:
             return
 
-        # 找到删除元素的节点和位置
+        # Find the node and position of the removed element
         cur = self.head.next
         while idx >= cur.numElements - 1:
             if idx == cur.numElements - 1:
@@ -143,7 +144,7 @@ class UnrolledLinkedList:
             idx -= cur.numElements
             cur = cur.next
 
-        # 删除元素
+        # Delete element
         for i in range(idx, cur.numElements - 1, 1):
             cur.elements[i] = cur.elements[i + 1]
         cur.elements[cur.numElements - 1] = None
@@ -151,7 +152,8 @@ class UnrolledLinkedList:
 
         if cur.next.cap != -1 \
                 and cur.cap >= cur.numElements + cur.next.numElements:
-            # 合并删除元素节点的下一节点至当前节点
+            # Merge the next node of the deleted element node
+            # to the current node
             next = cur.next
             for i in range(0, next.numElements):
                 cur.elements[cur.numElements + i] = next.elements[i]
