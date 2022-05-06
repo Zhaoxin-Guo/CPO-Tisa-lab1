@@ -2,6 +2,7 @@ from typing import Any
 from typing import Callable
 from typing import Optional
 
+
 class Node:
     def __init__(self, capacity: int = 5) -> None:
         self.next = None
