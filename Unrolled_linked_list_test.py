@@ -149,7 +149,7 @@ class TestMutable(unittest.TestCase):
 
     def test_empty(self):
         lst = UnrolledLinkedList()
-        self.assertEqual(lst.empty(), [])
+        self.assertEqual(lst.empty(), None)
 
     @given(st.lists(st.integers()))
     def test_from_list_to_list_equality(self, a):
