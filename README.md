@@ -64,6 +64,8 @@ PBT: `test_from_list_to_list_equality`,`test_python_len_and_list_size_equality`
 
 ## Changelog
 
+* 06.5.2022 - 11
+  * Chen Biao added type hints and added docstrings.
 * 25.4.2022 - 10
   * Guo Zhaoxin updated `mutableTest.py` to `Unrolled_linked_list_test.py`.
 * 25.4.2022 - 9

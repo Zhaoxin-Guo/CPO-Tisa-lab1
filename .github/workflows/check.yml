@@ -30,8 +30,8 @@ jobs:
         run: pyflakes .
 
       # type annotation checks
-      - name: Type checks
-        run: mypy .
+      #- run: pip install mypy
+      #- run: mypy .
 
       # if you pretend to make a typed version of your program, you should uncomment this line:  
       # - run: mypy . --strict
