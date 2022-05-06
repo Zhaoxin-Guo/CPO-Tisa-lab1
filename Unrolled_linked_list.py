@@ -227,8 +227,8 @@ class UnrolledLinkedList:
                 cur.elements[i] = f(cur.elements[i])
             cur = cur.next
 
-    def reduce(self, f: Callable[[Optional[int], Optional[int]], int]
-               , initial_state: Optional[int]) -> int:
+    def reduce(self, f: Callable[[Optional[int], Optional[int]], int],
+               initial_state: Optional[int]) -> int:
         """Process elements of the unrolled linked list
         to build a return value by specific function"""
         state = initial_state
