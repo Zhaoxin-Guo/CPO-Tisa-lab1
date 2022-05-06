@@ -188,7 +188,8 @@ class UnrolledLinkedList:
         return cur.elements[idx]
 
     def is_member(self, member: Any) -> int:
-        """Return a boolean indicating whether the element is a member of the unrolled linked list"""
+        """Return a boolean indicating whether the element
+        is a member of the unrolled linked list"""
         cur = self.head.next
         count = 0
         while cur is not None:
@@ -225,8 +226,10 @@ class UnrolledLinkedList:
                 cur.elements[i] = f(cur.elements[i])
             cur = cur.next
 
-    def reduce(self, f: Callable[[Optional[int], Optional[int]], int], initial_state: Optional[int]) -> int:
-        """Process elements of the unrolled linked list to build a return value by specific function"""
+    def reduce(self, f: Callable[[Optional[int], Optional[int]], int]
+               , initial_state: Optional[int]) -> int:
+        """Process elements of the unrolled linked list 
+        to build a return value by specific function"""
         state = initial_state
         cur = self.head.next
         while cur is not None:
