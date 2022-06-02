@@ -245,7 +245,8 @@ class UnrolledLinkedList:
         self = UnrolledLinkedList()
         return self
 
-    def concat(self, lst: 'UnrolledLinkedList') -> Tuple['UnrolledLinkedList', int]:
+    def concat(self, lst: 'UnrolledLinkedList') \
+            -> Tuple['UnrolledLinkedList', int]:
         """concat two UnrolledLinkedList"""
         lst1 = self.to_list()
         if lst.total_size == 0:
