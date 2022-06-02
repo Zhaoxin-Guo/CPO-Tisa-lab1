@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Tuple
 from typing import Callable
 from typing import Optional
 
@@ -16,9 +16,9 @@ class UnrolledLinkedList:
         """initialize UnrolledLinkedList"""
         self.total_size = 0  # The total number of elements
         self.head, self.tail = Node(-1), Node(-1)  # Sentinel node
-        node = Node()
-        self.head.next = node
-        node.next = self.tail
+        node: Node = Node()
+        self.head.next = node  # type: ignore # node is node
+        node.next = self.tail  # type: ignore
         self.iter_num = 0
 
     def __str__(self) -> str:
@@ -28,7 +28,7 @@ class UnrolledLinkedList:
     def __iter__(self) -> 'UnrolledLinkedList':
         """Implementation an iterator in Python style"""
         lst = UnrolledLinkedList()
-        lst.from_list((self.to_list()))
+        lst.from_list((self.to_list()))  # type: ignore
         return lst
 
     def __next__(self) -> 'UnrolledLinkedList':
@@ -36,7 +36,7 @@ class UnrolledLinkedList:
         if self.total_size == 0:
             raise StopIteration
         else:
-            tmp = self.head.next.elements[self.iter_num]
+            tmp = self.head.next.elements[self.iter_num]  # type: ignore
             self.iter_num = self.iter_num + 1
             return tmp
         self.head = self.head.next
@@ -45,7 +45,7 @@ class UnrolledLinkedList:
         """Return the size of unrolled linked list"""
         return self.total_size
 
-    def from_list(self, lst: 'UnrolledLinkedList') -> None:
+    def from_list(self, lst: list) -> None:
         """Conversion from list"""
         if lst is None:
             self.head.next = None
@@ -58,7 +58,7 @@ class UnrolledLinkedList:
 
     def to_list(self) -> list:
         """Conversion to list"""
-        res = []
+        res: list = []
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -70,7 +70,7 @@ class UnrolledLinkedList:
         """Add a new element"""
         idx = self.total_size
         # find insertion node and position
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -111,7 +111,7 @@ class UnrolledLinkedList:
             return
 
         # Find insertion node and position
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -152,7 +152,7 @@ class UnrolledLinkedList:
             return
 
         # Find the node and position of the removed element
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements - 1:
             if idx == cur.numElements - 1:
                 break
@@ -182,7 +182,7 @@ class UnrolledLinkedList:
         if idx < 0 or idx >= self.total_size:
             return None
 
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             idx -= cur.numElements
             cur = cur.next
@@ -191,7 +191,7 @@ class UnrolledLinkedList:
     def is_member(self, member: Any) -> int:
         """Return a boolean indicating whether the element
         is a member of the unrolled linked list"""
-        cur = self.head.next
+        cur: Any = self.head.next
         count = 0
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -199,7 +199,7 @@ class UnrolledLinkedList:
                 if member == cur.elements[i]:
                     index = count - 1
                     return index
-            return -1
+        return -1
 
     def reverse(self) -> 'UnrolledLinkedList':
         """reverse UnrolledLinkedList"""
@@ -209,9 +209,9 @@ class UnrolledLinkedList:
         lst_new.from_list(lst)
         return lst_new
 
-    def filter(self, f) -> None:
+    def filter(self, f) -> list:
         """ Filter UnrolledLinkedList by specific predicate"""
-        cur = self.head.next
+        cur: Any = self.head.next
         for i in range(0, cur.numElements // 2 + 1):
             if not f(cur.elements[i]):
                 del cur.elements[i]
@@ -228,10 +228,10 @@ class UnrolledLinkedList:
             cur = cur.next
 
     def reduce(self, f: Callable[[Optional[int], Optional[int]], int],
-               initial_state: Optional[int]) -> int:
+               initial_state: Optional[int]) -> Optional[int]:
         """Process elements of the unrolled linked list
         to build a return value by specific function"""
-        state = initial_state
+        state: Optional[int] = initial_state
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -241,9 +241,10 @@ class UnrolledLinkedList:
 
     def empty(self) -> None:
         """set empty for UnrolledLinkedList"""
-        return None
+        self = None
+        return self
 
-    def concat(self, lst: 'UnrolledLinkedList') -> ['UnrolledLinkedList', int]:
+    def concat(self, lst: 'UnrolledLinkedList') -> Tuple['UnrolledLinkedList', int]:
         """concat two UnrolledLinkedList"""
         lst1 = self.to_list()
         if lst.total_size == 0:
