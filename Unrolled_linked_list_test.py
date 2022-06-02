@@ -185,7 +185,7 @@ class TestMutable(unittest.TestCase):
 
         # Identity element
         # a * e
-        lst2.from_list(lst2.empty())
+        lst2.from_list(lst2.empty().to_list())
         lst, ans3 = lst1.concat(lst2)
         # e * a
         lst, ans4 = lst2.concat(lst1)
