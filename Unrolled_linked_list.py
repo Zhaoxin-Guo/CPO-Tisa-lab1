@@ -5,6 +5,7 @@ from typing import Optional
 
 class Node:
     def __init__(self, capacity: int = 5) -> None:
+        """initialize Node"""
         self.next = None
         self.numElements = 0  # The number of elements in the node
         self.elements = [None] * capacity
@@ -17,7 +18,7 @@ class UnrolledLinkedList:
         self.total_size = 0  # The total number of elements
         self.head, self.tail = Node(-1), Node(-1)  # Sentinel node
         node: Node = Node()
-        self.head.next = node  # type: ignore # node is node
+        self.head.next = node  # type: ignore
         node.next = self.tail  # type: ignore
         self.iter_num = 0
 
@@ -28,7 +29,7 @@ class UnrolledLinkedList:
     def __iter__(self) -> 'UnrolledLinkedList':
         """Implementation an iterator in Python style"""
         lst = UnrolledLinkedList()
-        lst.from_list((self.to_list()))  # type: ignore
+        lst.from_list((self.to_list()))
         return lst
 
     def __next__(self) -> 'UnrolledLinkedList':
@@ -239,9 +240,9 @@ class UnrolledLinkedList:
             cur = cur.next
         return state
 
-    def empty(self) -> None:
+    def empty(self) -> 'UnrolledLinkedList':
         """set empty for UnrolledLinkedList"""
-        self = None
+        self = UnrolledLinkedList()
         return self
 
     def concat(self, lst: 'UnrolledLinkedList') -> Tuple['UnrolledLinkedList', int]:
