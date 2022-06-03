@@ -1,3 +1,4 @@
+import typing
 from typing import Any, Tuple
 from typing import Callable
 from typing import Optional
@@ -32,7 +33,7 @@ class UnrolledLinkedList:
         lst.from_list((self.to_list()))
         return lst
 
-    def __next__(self) -> 'UnrolledLinkedList':
+    def __next__(self) -> Any:
         """Implementation an iterator in Python style"""
         if self.total_size == 0:
             raise StopIteration
@@ -46,7 +47,7 @@ class UnrolledLinkedList:
         """Return the size of unrolled linked list"""
         return self.total_size
 
-    def from_list(self, lst: list[Any]) -> None:
+    def from_list(self, lst: typing.List[Any]) -> None:
         """Conversion from list"""
         if lst is None:
             self.head.next = None
@@ -57,9 +58,9 @@ class UnrolledLinkedList:
         for e in reversed(lst):
             self.set(0, e)
 
-    def to_list(self) -> list[Optional[int]]:
+    def to_list(self) -> typing.List[Optional[int]]:
         """Conversion to list"""
-        res: list[Optional[int]] = []
+        res: typing.List[Optional[int]] = []
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -210,14 +211,13 @@ class UnrolledLinkedList:
         lst_new.from_list(lst)
         return lst_new
 
-    def filter(self, f: Callable[[Any], Any]) -> list:
+    def filter(self, f: Callable[[Any], Any]) -> None:
         """ Filter UnrolledLinkedList by specific predicate"""
         cur: Any = self.head.next
         for i in range(0, cur.numElements // 2 + 1):
             if not f(cur.elements[i]):
                 del cur.elements[i]
                 cur.numElements -= 1
-        return self.to_list()
 
     def map(self, f: Callable[[Optional[int]], bool]) -> None:
         """ Map UnrolledLinkedList by specific function """
