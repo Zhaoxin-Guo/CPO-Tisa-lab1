@@ -256,7 +256,7 @@ class UnrolledLinkedList:
         ans: int = 0
         i = 0
         while i < len(lst1):
-            ans *= lst1[i]
+            ans *= lst1[i]  # type: ignore
             i = i + 1
         lst = UnrolledLinkedList()
         lst.from_list(lst1)
