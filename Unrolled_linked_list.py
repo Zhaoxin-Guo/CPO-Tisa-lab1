@@ -253,7 +253,7 @@ class UnrolledLinkedList:
         else:
             lst2 = lst.to_list()
         lst1.extend(lst2)
-        ans = 0
+        ans: int = 0
         i = 0
         while i < len(lst1):
             ans *= lst1[i]
