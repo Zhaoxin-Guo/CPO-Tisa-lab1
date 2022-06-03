@@ -1,10 +1,12 @@
-from typing import Any
+import typing
+from typing import Any, Tuple
 from typing import Callable
 from typing import Optional
 
 
 class Node:
     def __init__(self, capacity: int = 5) -> None:
+        """initialize Node"""
         self.next = None
         self.numElements = 0  # The number of elements in the node
         self.elements = [None] * capacity
@@ -16,9 +18,9 @@ class UnrolledLinkedList:
         """initialize UnrolledLinkedList"""
         self.total_size = 0  # The total number of elements
         self.head, self.tail = Node(-1), Node(-1)  # Sentinel node
-        node = Node()
-        self.head.next = node
-        node.next = self.tail
+        node: Node = Node()
+        self.head.next = node  # type: ignore
+        node.next = self.tail  # type: ignore
         self.iter_num = 0
 
     def __str__(self) -> str:
@@ -31,12 +33,12 @@ class UnrolledLinkedList:
         lst.from_list((self.to_list()))
         return lst
 
-    def __next__(self) -> 'UnrolledLinkedList':
+    def __next__(self) -> Any:
         """Implementation an iterator in Python style"""
         if self.total_size == 0:
             raise StopIteration
         else:
-            tmp = self.head.next.elements[self.iter_num]
+            tmp = self.head.next.elements[self.iter_num]  # type: ignore
             self.iter_num = self.iter_num + 1
             return tmp
         self.head = self.head.next
@@ -45,7 +47,7 @@ class UnrolledLinkedList:
         """Return the size of unrolled linked list"""
         return self.total_size
 
-    def from_list(self, lst: 'UnrolledLinkedList') -> None:
+    def from_list(self, lst: typing.List[Any]) -> None:
         """Conversion from list"""
         if lst is None:
             self.head.next = None
@@ -56,9 +58,9 @@ class UnrolledLinkedList:
         for e in reversed(lst):
             self.set(0, e)
 
-    def to_list(self) -> list:
+    def to_list(self) -> typing.List[Optional[int]]:
         """Conversion to list"""
-        res = []
+        res: typing.List[Optional[int]] = []
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -70,7 +72,7 @@ class UnrolledLinkedList:
         """Add a new element"""
         idx = self.total_size
         # find insertion node and position
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -111,7 +113,7 @@ class UnrolledLinkedList:
             return
 
         # Find insertion node and position
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -152,7 +154,7 @@ class UnrolledLinkedList:
             return
 
         # Find the node and position of the removed element
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements - 1:
             if idx == cur.numElements - 1:
                 break
@@ -177,12 +179,12 @@ class UnrolledLinkedList:
 
         self.total_size -= 1
 
-    def get(self, idx: int) -> None:
+    def get(self, idx: int) -> Any:
         """get value by index"""
         if idx < 0 or idx >= self.total_size:
             return None
 
-        cur = self.head.next
+        cur: Any = self.head.next
         while idx >= cur.numElements:
             idx -= cur.numElements
             cur = cur.next
@@ -191,7 +193,7 @@ class UnrolledLinkedList:
     def is_member(self, member: Any) -> int:
         """Return a boolean indicating whether the element
         is a member of the unrolled linked list"""
-        cur = self.head.next
+        cur: Any = self.head.next
         count = 0
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -199,7 +201,7 @@ class UnrolledLinkedList:
                 if member == cur.elements[i]:
                     index = count - 1
                     return index
-            return -1
+        return -1
 
     def reverse(self) -> 'UnrolledLinkedList':
         """reverse UnrolledLinkedList"""
@@ -209,17 +211,15 @@ class UnrolledLinkedList:
         lst_new.from_list(lst)
         return lst_new
 
-    def filter(self, f) -> None:
+    def filter(self, f: Callable[[Any], Any]) -> None:
         """ Filter UnrolledLinkedList by specific predicate"""
-        cur = self.head.next
+        cur: Any = self.head.next
         for i in range(0, cur.numElements // 2 + 1):
             if not f(cur.elements[i]):
                 del cur.elements[i]
                 cur.numElements -= 1
 
-        return self.to_list()
-
-    def map(self, f: Callable[[Optional[int]], bool]):
+    def map(self, f: Callable[[Optional[int]], bool]) -> None:
         """ Map UnrolledLinkedList by specific function """
         cur = self.head.next
         while cur is not None:
@@ -228,10 +228,10 @@ class UnrolledLinkedList:
             cur = cur.next
 
     def reduce(self, f: Callable[[Optional[int], Optional[int]], int],
-               initial_state: Optional[int]) -> int:
+               initial_state: Optional[int]) -> Optional[int]:
         """Process elements of the unrolled linked list
         to build a return value by specific function"""
-        state = initial_state
+        state: Optional[int] = initial_state
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -239,11 +239,13 @@ class UnrolledLinkedList:
             cur = cur.next
         return state
 
-    def empty(self) -> None:
+    def empty(self) -> 'UnrolledLinkedList':
         """set empty for UnrolledLinkedList"""
-        return None
+        self = UnrolledLinkedList()
+        return self
 
-    def concat(self, lst: 'UnrolledLinkedList') -> ['UnrolledLinkedList', int]:
+    def concat(self, lst: 'UnrolledLinkedList') \
+            -> Tuple['UnrolledLinkedList', int]:
         """concat two UnrolledLinkedList"""
         lst1 = self.to_list()
         if lst.total_size == 0:
@@ -251,10 +253,10 @@ class UnrolledLinkedList:
         else:
             lst2 = lst.to_list()
         lst1.extend(lst2)
-        ans = 0
+        ans: int = 0
         i = 0
         while i < len(lst1):
-            ans *= lst1[i]
+            ans *= lst1[i]  # type: ignore
             i = i + 1
         lst = UnrolledLinkedList()
         lst.from_list(lst1)
