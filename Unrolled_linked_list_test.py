@@ -1,3 +1,4 @@
+import typing
 import unittest
 from hypothesis import given
 from Unrolled_linked_list import UnrolledLinkedList
@@ -6,21 +7,21 @@ import hypothesis.strategies as st
 
 class TestMutable(unittest.TestCase):
 
-    def test_add(self):
+    def test_add(self) -> None:
         lst = UnrolledLinkedList()
         lst.add([])
         self.assertEqual(lst.to_list(), [[]])
         lst.add('a')
         self.assertEqual(lst.to_list(), [[], 'a'])
 
-    def test_set(self):
+    def test_set(self) -> None:
         lst = UnrolledLinkedList()
         lst.set(0, 'a')
         self.assertEqual(lst.to_list(), ['a'])
         lst.set(1, 'b')
         self.assertEqual(lst.to_list(), ['a', 'b'])
 
-    def test_remove(self):
+    def test_remove(self) -> None:
         lst = UnrolledLinkedList()
         lst.set(0, 'a')
         lst.set(1, 'b')
@@ -32,7 +33,7 @@ class TestMutable(unittest.TestCase):
         lst.remove(0)
         self.assertEqual(lst.to_list(), [])
 
-    def test_size(self):
+    def test_size(self) -> None:
         lst = UnrolledLinkedList()
         self.assertEqual(lst.size(), 0)
         lst.set(0, 'a')
@@ -40,20 +41,20 @@ class TestMutable(unittest.TestCase):
         lst.set(1, 'b')
         self.assertEqual(lst.size(), 2)
 
-    def test_is_member(self):
+    def test_is_member(self) -> None:
         x = ['a', 'b', 'c']
         lst = UnrolledLinkedList()
         lst.from_list(x)
         index = lst.is_member('b')
         self.assertEqual(index, 1)
 
-    def test_reverse(self):
+    def test_reverse(self) -> None:
         lst = UnrolledLinkedList()
         x = ['a', 'b', 'c']
         lst.from_list(x)
         self.assertEqual(lst.reverse().to_list(), ['c', 'b', 'a'])
 
-    def test_from_list(self):
+    def test_from_list(self) -> None:
         # Each test has to be initialized again
         # Otherwise the result of the last time is still exis
         lst = UnrolledLinkedList()
@@ -66,7 +67,7 @@ class TestMutable(unittest.TestCase):
         lst.from_list(['a', 'b'])
         self.assertEqual(lst.to_list(), ['a', 'b'])
 
-    def test_to_list(self):
+    def test_to_list(self) -> None:
         lst = UnrolledLinkedList()
         self.assertEqual(UnrolledLinkedList().to_list(), [])
         lst.set(0, 'a')
@@ -74,44 +75,44 @@ class TestMutable(unittest.TestCase):
         lst.set(1, 'b')
         self.assertEqual(lst.to_list(), ['a', 'b'])
 
-    def test_filter(self):
+    def test_filter(self) -> None:
         x = [1, 2, 3, 4, 5]
         lst = UnrolledLinkedList()
         lst.from_list(x)
         lst.filter(lambda e: e % 2 == 0)
         self.assertEqual([2, 4], lst.to_list())
 
-    def test_get(self):
+    def test_get(self) -> None:
         lst = UnrolledLinkedList()
         lst.set(0, 'a')
         lst.set(1, 'b')
         self.assertEqual(lst.get(0), 'a')
         self.assertEqual(lst.get(1), 'b')
 
-    def test_map(self):
+    def test_map(self) -> None:
         lst = UnrolledLinkedList()
-        lst.map(str)
+        lst.map(str)  # type: ignore
         self.assertEqual(lst.to_list(), [])
 
         lst = UnrolledLinkedList()
         lst.from_list([1, 2, 3])
-        lst.map(str)
+        lst.map(str)  # type: ignore
         self.assertEqual(lst.to_list(), ["1", "2", "3"])
 
         lst = UnrolledLinkedList()
         lst.from_list([1, 2, 3])
-        lst.map(lambda x: x + 1)
+        lst.map(lambda x: x + 1)  # type: ignore
         self.assertEqual(lst.to_list(), [2, 3, 4])
 
-    def test_reduce(self):
+    def test_reduce(self) -> None:
         # sum of empty list
         lst = UnrolledLinkedList()
-        self.assertEqual(lst.reduce(lambda st, e: st + e, 0), 0)
+        self.assertEqual(lst.reduce(lambda st, e: st + e, 0), 0)  # type: ignore
 
         # sum of list
         lst = UnrolledLinkedList()
         lst.from_list([1, 2, 3])
-        self.assertEqual(lst.reduce(lambda st, e: st + e, 0), 6)
+        self.assertEqual(lst.reduce(lambda st, e: st + e, 0), 6)  # type: ignore
         # size
         test_data = [
             [],
@@ -120,15 +121,15 @@ class TestMutable(unittest.TestCase):
         ]
         for e in test_data:
             lst = UnrolledLinkedList()
-            lst.from_list(e)
-            self.assertEqual(lst.reduce(lambda st, _: st + 1, 0), lst.size())
+            lst.from_list(e)  # type: ignore
+            self.assertEqual(lst.reduce(lambda st, _: st + 1, 0), lst.size())  # type: ignore
 
-    def test_iter(self):
+    def test_iter(self) -> None:
         x = [1, 2, 3]
         lst = UnrolledLinkedList()
         lst.from_list(x)
         tmp = []
-        for e in lst.head.next.elements:
+        for e in lst.head.next.elements:  # type: ignore
             if e is not None:
                 tmp.append(e)
         self.assertEqual(x, tmp)
@@ -148,14 +149,14 @@ class TestMutable(unittest.TestCase):
         self.assertEqual(next(i1), 3)
 
     @given(st.lists(st.integers()))
-    def test_from_list_to_list_equality(self, a):
+    def test_from_list_to_list_equality(self, a: typing.List[int]) -> None:
         lst = UnrolledLinkedList()
         lst.from_list(a)
         b = lst.to_list()
         self.assertEqual(a, b)
 
     @given(st.lists(st.integers()))
-    def test_python_len_and_list_size_equality(self, a):
+    def test_python_len_and_list_size_equality(self, a: typing.List[int]) -> None:
         lst = UnrolledLinkedList()
         lst.from_list(a)
         self.assertEqual(lst.size(), len(a))
@@ -163,7 +164,7 @@ class TestMutable(unittest.TestCase):
     @given(a=st.lists(st.integers()),
            b=st.lists(st.integers()),
            c=st.lists(st.integers()))
-    def test_monoid_properties(self, a, b, c):
+    def test_monoid_properties(self, a: typing.List[int], b: typing.List[int], c: typing.List[int]) -> None:
         lst1 = UnrolledLinkedList()
         lst1.from_list(a)
         lst2 = UnrolledLinkedList()
