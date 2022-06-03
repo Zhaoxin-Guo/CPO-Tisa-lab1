@@ -172,8 +172,8 @@ class TestMutable(unittest.TestCase):
            b=st.lists(st.integers()),
            c=st.lists(st.integers()))
     def test_monoid_properties(self, a: typing.List[int]
-                               , b: typing.List[int]
-                               , c: typing.List[int]) -> None:
+                            , b: typing.List[int]
+                            , c: typing.List[int]) -> None:
         lst1 = UnrolledLinkedList()
         lst1.from_list(a)
         lst2 = UnrolledLinkedList()
