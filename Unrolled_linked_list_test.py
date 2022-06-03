@@ -125,7 +125,8 @@ class TestMutable(unittest.TestCase):
             lst = UnrolledLinkedList()
             lst.from_list(e)  # type: ignore
             self.assertEqual(lst.reduce
-                             (lambda st, _: st + 1, 0), lst.size())  # type: ignore
+                             (lambda st, _: st + 1, 0)
+                             , lst.size())  # type: ignore
 
     def test_iter(self) -> None:
         x = [1, 2, 3]
@@ -160,8 +161,9 @@ class TestMutable(unittest.TestCase):
         self.assertEqual(a, b)
 
     @given(st.lists(st.integers()))
-    def test_python_len_and_list_size_equality(self, 
-                                               a: typing.List[int]) -> None:
+    def test_python_len_and_list_size_equality(self,
+                                               a: typing
+                                               .List[int]) -> None:
         lst = UnrolledLinkedList()
         lst.from_list(a)
         self.assertEqual(lst.size(), len(a))
@@ -169,8 +171,9 @@ class TestMutable(unittest.TestCase):
     @given(a=st.lists(st.integers()),
            b=st.lists(st.integers()),
            c=st.lists(st.integers()))
-    def test_monoid_properties(self, a: typing.List[int], 
-                               b: typing.List[int], c: typing.List[int]) -> None:
+    def test_monoid_properties(self, a: typing.List[int],
+                               b: typing.List[int], 
+                               c: typing.List[int]) -> None:
         lst1 = UnrolledLinkedList()
         lst1.from_list(a)
         lst2 = UnrolledLinkedList()
