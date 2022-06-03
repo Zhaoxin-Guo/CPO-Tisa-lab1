@@ -46,7 +46,7 @@ class UnrolledLinkedList:
         """Return the size of unrolled linked list"""
         return self.total_size
 
-    def from_list(self, lst: list) -> None:
+    def from_list(self, lst: list[Any]) -> None:
         """Conversion from list"""
         if lst is None:
             self.head.next = None
@@ -57,9 +57,9 @@ class UnrolledLinkedList:
         for e in reversed(lst):
             self.set(0, e)
 
-    def to_list(self) -> list:
+    def to_list(self) -> list[Optional[int]]:
         """Conversion to list"""
-        res: list = []
+        res: list[Optional[int]] = []
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -178,7 +178,7 @@ class UnrolledLinkedList:
 
         self.total_size -= 1
 
-    def get(self, idx: int) -> None:
+    def get(self, idx: int) -> Any:
         """get value by index"""
         if idx < 0 or idx >= self.total_size:
             return None
@@ -210,17 +210,16 @@ class UnrolledLinkedList:
         lst_new.from_list(lst)
         return lst_new
 
-    def filter(self, f) -> list:
+    def filter(self, f: Callable[[Any], Any]) -> list:
         """ Filter UnrolledLinkedList by specific predicate"""
         cur: Any = self.head.next
         for i in range(0, cur.numElements // 2 + 1):
             if not f(cur.elements[i]):
                 del cur.elements[i]
                 cur.numElements -= 1
-
         return self.to_list()
 
-    def map(self, f: Callable[[Optional[int]], bool]):
+    def map(self, f: Callable[[Optional[int]], bool]) -> None:
         """ Map UnrolledLinkedList by specific function """
         cur = self.head.next
         while cur is not None:
