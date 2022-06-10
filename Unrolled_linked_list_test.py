@@ -79,7 +79,7 @@ class TestMutable(unittest.TestCase):
         x = [1, 2, 3, 4, 5]
         lst = UnrolledLinkedList()
         lst.from_list(x)
-        lst.filter(lambda e: e % 2 == 0)
+        lst.filter(lambda e: e % 2 == 0)  # type: ignore
         self.assertEqual([2, 4], lst.to_list())
 
     def test_get(self) -> None:
