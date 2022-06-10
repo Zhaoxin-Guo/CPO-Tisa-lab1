@@ -1,7 +1,9 @@
 import typing
-from typing import Any, Tuple
+from typing import Tuple
 from typing import Callable
 from typing import Optional
+
+AllType = typing.Union[int, str, list, None]
 
 
 class Node:
@@ -33,12 +35,14 @@ class UnrolledLinkedList:
         lst.from_list((self.to_list()))
         return lst
 
-    def __next__(self) -> Any:
+    def __next__(self) -> Optional['UnrolledLinkedList']:
         """Implementation an iterator in Python style"""
         if self.total_size == 0:
             raise StopIteration
+        if self.head.next is None:
+            raise StopIteration
         else:
-            tmp = self.head.next.elements[self.iter_num]  # type: ignore
+            tmp = self.head.next.elements[self.iter_num]
             self.iter_num = self.iter_num + 1
             return tmp
         self.head = self.head.next
@@ -47,7 +51,7 @@ class UnrolledLinkedList:
         """Return the size of unrolled linked list"""
         return self.total_size
 
-    def from_list(self, lst: typing.List[Any]) -> None:
+    def from_list(self, lst: typing.Sequence[Optional[AllType]]) -> None:
         """Conversion from list"""
         if lst is None:
             self.head.next = None
@@ -68,11 +72,13 @@ class UnrolledLinkedList:
             cur = cur.next
         return res
 
-    def add(self, obj: Any) -> None:
+    def add(self, obj: AllType) -> None:
         """Add a new element"""
         idx = self.total_size
         # find insertion node and position
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -107,13 +113,14 @@ class UnrolledLinkedList:
         cur.numElements += 1
         self.total_size += 1
 
-    def set(self, idx: int, obj: Any) -> None:
+    def set(self, idx: int, obj: AllType) -> None:
         """Set an element with specific index"""
         if idx < 0 or idx > self.total_size:
             return
-
         # Find insertion node and position
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return
         while idx >= cur.numElements:
             if idx == cur.numElements:
                 break
@@ -154,7 +161,9 @@ class UnrolledLinkedList:
             return
 
         # Find the node and position of the removed element
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return
         while idx >= cur.numElements - 1:
             if idx == cur.numElements - 1:
                 break
@@ -179,21 +188,24 @@ class UnrolledLinkedList:
 
         self.total_size -= 1
 
-    def get(self, idx: int) -> Any:
+    def get(self, idx: int) -> AllType:
         """get value by index"""
         if idx < 0 or idx >= self.total_size:
             return None
-
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return None
         while idx >= cur.numElements:
             idx -= cur.numElements
             cur = cur.next
         return cur.elements[idx]
 
-    def is_member(self, member: Any) -> int:
+    def is_member(self, member: AllType) -> int:
         """Return a boolean indicating whether the element
         is a member of the unrolled linked list"""
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return 0
         count = 0
         while cur is not None:
             for i in range(0, cur.numElements):
@@ -211,16 +223,20 @@ class UnrolledLinkedList:
         lst_new.from_list(lst)
         return lst_new
 
-    def filter(self, f: Callable[[Any], Any]) -> None:
+    def filter(self, f: Callable[[AllType], AllType]) -> None:
         """ Filter UnrolledLinkedList by specific predicate"""
-        cur: Any = self.head.next
+        cur = self.head.next
+        if cur is None:
+            return None
         for i in range(0, cur.numElements // 2 + 1):
             if not f(cur.elements[i]):
                 del cur.elements[i]
                 cur.numElements -= 1
 
     def map(self, f: Callable[[Optional[int]], bool]) -> None:
-        """ Map UnrolledLinkedList by specific function """
+        """ Map UnrolledLinkedList by specific function
+        :rtype: object
+        """
         cur = self.head.next
         while cur is not None:
             for i in range(0, cur.numElements):
