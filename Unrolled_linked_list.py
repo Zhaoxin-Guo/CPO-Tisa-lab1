@@ -234,7 +234,7 @@ class UnrolledLinkedList:
                 cur.numElements -= 1
 
     def map(self, f: Callable[[Optional[int]], bool]) -> None:
-        """ Map UnrolledLinkedList by specific function 
+        """ Map UnrolledLinkedList by specific function
         :rtype: object
         """
         cur = self.head.next
